@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  </head>
+  <body>
+    <main>
+        <h1>Welcome to My Website</h1>
+        <h1>LaTeX in Flask!</h1>
+        <p>Einstein’s formula: $$
+          E = mc^2
+          $$</p>
+        <p>Integral example:</p>
+        <form action="{{ url_for('main.handle_form') }}" method="POST">
+          <input type="text" name="user_input" placeholder="Type here..." required>
+          <button type="submit">Submit</button>
+        </form>
+        <p>$$
+          {{user_input}}
+          $$</p>
+    </main>
+    <script src="{{ url_for('static', filename='js-for-frontend/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js-for-frontend/math.js') }}"></script>
+  </body>
+</html>
